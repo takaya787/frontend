@@ -31,7 +31,6 @@ export default function UserForm() {
         // console.log(data);
         if (data.errors) {
           console.log(data.errors);
-          alert('You have some errors.');
           handleError(data.errors);
           return
         }
@@ -65,7 +64,7 @@ export default function UserForm() {
         <p>{errors.email}</p>
       )}
       {errors.email !== '' && (
-        <p>{errors.email}</p>
+        <p>email {errors.email}</p>
       )}
       <br />
       <label htmlFor="password">Password</label>
@@ -77,7 +76,7 @@ export default function UserForm() {
         ref={register({ required: 'passwordは必須です' })}
       />
       {errors.password !== '' && (
-        <p>{errors.password}</p>
+        <p>password {errors.password}</p>
       )}
       <br />
       <label htmlFor="password_confirmation">Password_confirmation</label>
@@ -89,7 +88,7 @@ export default function UserForm() {
         ref={register({ required: 'password_confirmationは必須です' })}
       />
       {errors.password_confirmation !== "" && (
-        <p>{errors.password_confirmation}</p>
+        <p>password_confirmation {errors.password_confirmation}</p>
       )}
       <input type="submit" />
     </form>
@@ -109,7 +108,7 @@ export function DeleteButton(props) {
       },
     })
       .then(data => {
-        console.log(data);
+        // console.log(data);
         mutate(baseUrl);
       });
   }
