@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import useSWR from 'swr';
 
-import PostForm, { DeleteButton } from '../components/PostForm'
+import UserForm, { DeleteButton } from '../components/UserForm'
 
-export const baseUrl = "http://localhost:3000/api/posts";
+export const baseUrl = "http://localhost:3000/api/users";
 const fetcher = () => fetch(baseUrl).then(res => res.json());
 
 export default function Home(props) {
@@ -11,25 +11,26 @@ export default function Home(props) {
 
   return (
     <div>
-      <h1>POSTの一覧</h1>
+      <h1>USER一覧</h1>
       {error && (
         <p>failed to load</p>
       )}
       {data && (
-        <button onClick={() => console.log(data.data)}>data show</button>
+        <button onClick={() => console.log(data)}>data show</button>
       )}
-      {data && data.data.map((post) =>
-      (<div key={post.id}>
-        {post.id}
+      {data && data.map((user) =>
+      (<div key={user.id}>
+        {user.id}
         <br />
-        {post.title}
+        {user.name}
         <br />
-        <DeleteButton id={post.id} />
+        {user.email}
+        <DeleteButton id={user.id} />
       </div>
       ))
       }
-      <h1>POSTの作成</h1>
-      <PostForm />
+      <h1>USERの作成</h1>
+      <UserForm />
     </div>
   )
 }
