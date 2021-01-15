@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import useSWR from 'swr';
-// import fetch from 'unfetch';
-const baseUrl = "http://localhost:3000/api/posts";
+
+import PostForm, { DeleteButton } from '../components/PostForm'
+
+export const baseUrl = "http://localhost:3000/api/posts";
 const fetcher = () => fetch(baseUrl).then(res => res.json());
 
 export default function Home(props) {
@@ -18,19 +20,16 @@ export default function Home(props) {
       )}
       {data && data.data.map((post) =>
       (<div key={post.id}>
-        <p>{post.id}</p>
+        {post.id}
         <br />
-        <p>{post.title}</p>
+        {post.title}
+        <br />
+        <DeleteButton id={post.id} />
       </div>
       ))
       }
-      {/* {props.posts.map((post) =>
-        <>
-          <p>{post.id}</p>
-          <br />
-          <p>{post.title}</p>
-        </>
-      )} */}
+      <h1>POSTの作成</h1>
+      <PostForm />
     </div>
   )
 }
