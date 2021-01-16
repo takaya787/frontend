@@ -34,7 +34,9 @@ export default function UserForm() {
           handleError(data.errors);
           return
         }
+        // console.log(data.token);
         console.log('User is successfully created');
+        localStorage.setItem("token", data.token);
         resetError();
         mutate(baseUrl);
       })
@@ -64,7 +66,7 @@ export default function UserForm() {
         <p>{errors.email}</p>
       )}
       {errors.email !== '' && (
-        <p>email {errors.email}</p>
+        <p>Email {errors.email}</p>
       )}
       <br />
       <label htmlFor="password">Password</label>
@@ -76,7 +78,7 @@ export default function UserForm() {
         ref={register({ required: 'passwordは必須です' })}
       />
       {errors.password !== '' && (
-        <p>password {errors.password}</p>
+        <p>Password {errors.password}</p>
       )}
       <br />
       <label htmlFor="password_confirmation">Password_confirmation</label>
@@ -88,7 +90,7 @@ export default function UserForm() {
         ref={register({ required: 'password_confirmationは必須です' })}
       />
       {errors.password_confirmation !== "" && (
-        <p>password_confirmation {errors.password_confirmation}</p>
+        <p>Password_confirmation {errors.password_confirmation}</p>
       )}
       <input type="submit" />
     </form>
