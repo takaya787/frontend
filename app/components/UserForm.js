@@ -1,13 +1,22 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { baseUrl } from '../pages/index';
+import Auth from '../modules/auth'
+
 //mutateでkeyを元に更新できる
 import { mutate } from 'swr';
+//contexts
+import { UserContext, LoginContext } from '../pages/_app';
 
 export default function UserForm() {
   const { register, handleSubmit, formstate } = useForm();
   const initialerrors = { name: '', email: '', password: '', password_confirmation: '' };
 
+  //_appからcontextsを受け取る
+  const { setUser } = useContext(UserContext);
+  const { setLogin } = useContext(LoginContext);
+
+  //errorを表示させるCustom Hooks
   const { errors, handleError, resetError } = useFormErrors(initialerrors);
 
   const onSubmit = (value) => {
@@ -36,7 +45,12 @@ export default function UserForm() {
         }
         // console.log(data.token);
         console.log('User is successfully created');
-        localStorage.setItem("token", data.token);
+        //Login関連の処理 context使用
+        Auth.login(data.token);
+        const user_data = data.user
+        setUser({ email: user_data.email, id: user_data.id });
+        setLogin(true);
+        //Login関連の処理 終了
         resetError();
         mutate(baseUrl);
       })
@@ -62,9 +76,6 @@ export default function UserForm() {
         placeholder="emailを入力"
         ref={register({ required: 'emailは必須です' })}
       />
-      {!errors.email === '' && (
-        <p>{errors.email}</p>
-      )}
       {errors.email !== '' && (
         <p>Email {errors.email}</p>
       )}
@@ -98,6 +109,10 @@ export default function UserForm() {
 }
 
 export function DeleteButton(props) {
+  //_appからcontextsを受け取る
+  const { user, setUser } = useContext(UserContext);
+  const { setLogin } = useContext(LoginContext);
+
   const handleClick = () => {
     const con = confirm('Userを削除してよろしいですか？');
     if (!con) {
@@ -110,7 +125,14 @@ export function DeleteButton(props) {
       },
     })
       .then(data => {
-        // console.log(data);
+        //Login関連の処理 context使用
+        if (user.id === props.id) {
+          Auth.login(data.token);
+          setUser({ email: '', id: 0 });
+          setLogin(false);
+          alert('Log out successfully');
+        }
+        //Login関連の処理 終了
         mutate(baseUrl);
       });
   }
