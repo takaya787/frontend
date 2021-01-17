@@ -2,14 +2,13 @@ import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Auth from '../modules/auth'
 //contexts
-import { UserContext, LoginContext } from '../pages/_app';
+import { UserContext } from '../pages/_app';
 
 const loginUrl = 'http://localhost:3000/api/login';
 
 export default function LoginForm() {
   //_appからcontextsを受け取る
   const { setUser } = useContext(UserContext);
-  const { setLogin } = useContext(LoginContext);
 
   const { register, handleSubmit } = useForm();
 
@@ -37,7 +36,6 @@ export default function LoginForm() {
         Auth.login(data.token);
         const user_data = data.user
         setUser({ email: user_data.email, id: user_data.id });
-        setLogin(true);
       })
       .catch((error) => {
         console.error('Error:', error);

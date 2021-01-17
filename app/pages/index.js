@@ -3,20 +3,16 @@ import Link from 'next/link';
 import Signup from '../components/Signup'
 import Auth from '../modules/auth';
 //contexts
-import { UserContext, LoginContext } from './_app';
+import { UserContext } from './_app';
 
 export const baseUrl = "http://localhost:3000/api/users";
 
 export default function Home(props) {
   const { user, setUser } = useContext(UserContext);
-  const { login, setLogin } = useContext(LoginContext);
 
   const Logout = () => {
-    //LoginContextから受け取ってるか確認
     Auth.logout();
-    setLogin(false);
     setUser({ email: '', id: 0 })
-    //LoginContextから受け取ってるか確認
   }
   return (
     <div>
@@ -24,18 +20,21 @@ export default function Home(props) {
       <Link href='/users'>
         <a>Users</a>
       </Link>
-      {login && (
-        <>
+      <Link href='/reviews/new'>
+        <a>Reviews</a>
+      </Link>
+      {Auth.isLoggedIn() && (
+        <div>
           <h3>You are logined</h3>
           <p>Your id is {user.id}</p>
           <button onClick={Logout}>Log out</button>
-        </>
+        </div>
       )}
-      {!login && (
-        <>
+      {!Auth.isLoggedIn() && (
+        <div>
           <h2>Sign up</h2>
           <Signup title='Sign up' />
-        </>
+        </div>
       )}
     </div>
   )

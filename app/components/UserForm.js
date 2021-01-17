@@ -6,7 +6,7 @@ import Auth from '../modules/auth'
 //mutateでkeyを元に更新できる
 import { mutate } from 'swr';
 //contexts
-import { UserContext, LoginContext } from '../pages/_app';
+import { UserContext } from '../pages/_app';
 
 export default function UserForm() {
   const { register, handleSubmit, formstate } = useForm();
@@ -14,7 +14,6 @@ export default function UserForm() {
 
   //_appからcontextsを受け取る
   const { setUser } = useContext(UserContext);
-  const { setLogin } = useContext(LoginContext);
 
   //errorを表示させるCustom Hooks
   const { errors, handleError, resetError } = useFormErrors(initialerrors);
@@ -111,7 +110,6 @@ export default function UserForm() {
 export function DeleteButton(props) {
   //_appからcontextsを受け取る
   const { user, setUser } = useContext(UserContext);
-  const { setLogin } = useContext(LoginContext);
 
   const handleClick = () => {
     const con = confirm('Userを削除してよろしいですか？');

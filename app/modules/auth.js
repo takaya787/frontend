@@ -1,20 +1,31 @@
 class Auth {
   //localstorageがrailsのsessionに等しい
+  //  if(typeof window !== 'undefined') {
+  //   localStorage.setItem('myCat', 'Tom');
+  // }
   static login(token) {
-    localStorage.setItem('token', token)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('token', token)
+    }
   }
 
   //tokenがsetされていたらtrueを返す
   static isLoggedIn() {
-    return localStorage.getItem('token') !== null;
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('token') !== null;
+    }
   }
 
   static logout() {
-    localStorage.removeItem('token');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token');
+    }
   }
 
   static getToken() {
-    return localStorage.getItem('token');
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('token');
+    }
   }
 }
 
