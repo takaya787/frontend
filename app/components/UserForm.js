@@ -48,7 +48,6 @@ export default function UserForm() {
         Auth.login(data.token);
         const user_data = data.user
         setUser({ email: user_data.email, id: user_data.id });
-        setLogin(true);
         //Login関連の処理 終了
         resetError();
         mutate(baseUrl);
@@ -127,7 +126,6 @@ export function DeleteButton(props) {
         if (user.id === props.id) {
           Auth.login(data.token);
           setUser({ email: '', id: 0 });
-          setLogin(false);
           alert('Log out successfully');
         }
         //Login関連の処理 終了
