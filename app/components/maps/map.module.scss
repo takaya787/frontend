@@ -1,0 +1,12 @@
+.Googlemap {
+  max-width: 1300px;
+  margin: 0 auto;
+  //@at-rootテキストの分下に空間を作る
+  margin-bottom: 10px;
+  height: 90vh;
+  width: 90%;
+  position: relative;
+  @media screen and ( max-width: 767px ){
+    width: 95%;
+  }
+}

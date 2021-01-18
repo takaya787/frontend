@@ -4,10 +4,10 @@ import useRedirect from '../../modules/useRedirect'
 //{yarn add google-map-react}をコンテナ内で入力して、packageをダウンロードする必要がある
 import GoogleMapReact from 'google-map-react'
 
-
 //components
 import CheckForm from './CheckForm';
 import CenterPin from './CenterPin';
+import styles from './map.module.scss';
 
 export const CenterContext = createContext();
 export const ZoomContext = createContext();
@@ -30,7 +30,7 @@ export default function Map(props) {
   }, [])
 
   return (
-    <div style={{ height: '90vh', width: '90%' }}>
+    <div className={styles.Googlemap}>
       <CenterContext.Provider value={CenterValue}>
         <ZoomContext.Provider value={ZoomValue}>
           <CheckForm />

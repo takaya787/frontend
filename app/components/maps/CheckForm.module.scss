@@ -1,0 +1,47 @@
+#check {
+  position: absolute;
+  top: 60px;
+  left: 5%;
+  z-index: 10;
+  .check {
+    position: relative;
+    &_icon {
+      color: blue;
+      position: absolute;
+      top: 7px;
+      left: 5px;
+    }
+    &_input {
+      line-height: 20px;
+      font-size: 14px;
+      height: 30px;
+      width: 210px;
+      padding: 5px;
+      padding-left: 25px;
+      border: 1px solid honeydew;
+      border-radius: 20px;
+      box-shadow: -3px 7px 23px 0px rgba(0,0,0,0.6);
+      &:focus {
+        outline: 0;
+      }
+    }
+    &_submit {
+      background-color: white;
+      border: none;
+      border-radius: 5px;
+      position: absolute;
+      top: 6px;
+      left: 173px;
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+    @media screen and ( max-width: 767px ){
+      &_submit {
+      position: absolute;
+      top: 6px;
+      left: 168px;
+      }
+    }
+  }
+}

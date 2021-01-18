@@ -4,6 +4,11 @@ import { useForm } from 'react-hook-form';
 import Auth from '../../modules/auth';
 import { CenterContext, ZoomContext } from './map';
 
+import styles from './CheckForm.module.scss'
+//react-iconsをダウンロード
+import { SiGooglemaps } from 'react-icons/si';
+import { GiMagnifyingGlass } from 'react-icons/gi';
+
 const URL = "http://localhost:3000/api/reviews/check";
 
 export default function CheckForm() {
@@ -39,14 +44,22 @@ export default function CheckForm() {
   }
   return (
     // useFormはrefを設定しないと値が入力されない
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        id="keyword"
-        name="keyword"
-        placeholder="場所を入力..."
-        ref={register({ required: '入力してください' })}
-      />
-      <input type="submit" />
-    </form>
+
+    <div id={styles.check}>
+      <form className={styles.check} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.check_icon}>
+          <SiGooglemaps size={16} />
+        </div>
+        <input
+          className={styles.check_input}
+          id="keyword"
+          name="keyword"
+          placeholder="場所を入力..."
+          ref={register({ required: '入力してください' })}
+        />
+        <button className={styles.check_submit} type="submit" name="submit"><GiMagnifyingGlass size={16} />
+        </button>
+      </form>
+    </div>
   )
 }
