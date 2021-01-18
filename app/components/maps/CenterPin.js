@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './CenterPin.module.scss';
 //Child components
 import ReviewForm from './centerchildren/ReviewForm';
+import HoverText from './centerchildren/HoverText';
 
 const markerStyle = {
   height: 20,
@@ -89,6 +90,11 @@ export default function CenterPin(props) {
       {formopen && !menuopen && (
         <>
           <ReviewForm lat={props.lat} lng={props.lng} CloseButton={CloseButton} />
+        </>
+      )}
+      {props.$hover && (
+        <>
+          <HoverText />
         </>
       )}
       <div className={styles.marker} style={style} onClick={MenuControll}>
