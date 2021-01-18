@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
+
 import UserForm from './UserForm';
 import LoginForm from './LoginForm';
+import propTypes from "prop-types";
 
 export default function Signup(props) {
   const [isSignup, setIsSignup] = useState(false);
@@ -42,3 +44,7 @@ export default function Signup(props) {
     </>
   )
 }
+
+Signup.propTypes = {
+  title: PropTypes.string,
+};

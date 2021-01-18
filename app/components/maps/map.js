@@ -7,6 +7,7 @@ import GoogleMapReact from 'google-map-react'
 
 //components
 import CheckForm from './CheckForm';
+import CenterPin from './CenterPin';
 
 export const CenterContext = createContext();
 export const ZoomContext = createContext();
@@ -44,7 +45,12 @@ export default function Map(props) {
             yesIWantToUseGoogleMapApiInternals
           /* これをonにしたらfull画面ボタンoffになる */
           //defaultOptions={defaultMapOptions}
-          ></GoogleMapReact>
+          >
+            <CenterPin
+              lat={center.lat}
+              lng={center.lng}
+            />
+          </GoogleMapReact>
         </ZoomContext.Provider>
       </CenterContext.Provider>
     </div>

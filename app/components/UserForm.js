@@ -1,5 +1,7 @@
 import { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import PropsType from 'prop-types';
+
 import { baseUrl } from '../pages/index';
 import Auth from '../modules/auth'
 
@@ -157,4 +159,10 @@ function useFormErrors(initialerrors) {
   }
 
   return { errors, handleError, resetError }
+}
+
+//propstypeをまとめる
+
+DeleteButton.propsType = {
+  id: PropsType.number,
 }
