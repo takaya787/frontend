@@ -1,0 +1,28 @@
+.marker {
+  display: inline-block;
+  vertical-align: middle;
+  color: #333;
+  line-height: 1;
+  position: relative;
+  width: 1.8em;
+  height: 1.8em;
+  background: currentColor;
+  border: 0.1em solid currentColor;
+  border-radius: 40% 60% 0% 100% / 40% 100% 0% 60%;
+  box-sizing: content-box;
+  transform: rotate(45deg);
+  z-index: 3;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+.marker::before {
+  content: '';
+  position: absolute;
+  top: 18%;
+  left: 18%;
+  width: 0.336em;
+  height: 0.336em;
+  background: #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}

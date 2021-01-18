@@ -18,3 +18,7 @@ a:hover {
 * {
   box-sizing: border-box;
 }
+.required {
+  color: brown;
+  padding-left: 10px;
+}

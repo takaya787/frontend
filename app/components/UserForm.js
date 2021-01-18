@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import PropsType from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { baseUrl } from '../pages/index';
 import Auth from '../modules/auth'
@@ -141,7 +141,7 @@ export function DeleteButton(props) {
 
 //railsのvalidateからerrorを受け取るためのcustom Hook
 //formの要素ごとのkeyを設定して、各keyごとにerror messageを追加
-function useFormErrors(initialerrors) {
+export function useFormErrors(initialerrors) {
   // const initialerrors = { name: '', email: '', password: '', password_confirmation: '' };
   const [errors, setErrors] = useState(initialerrors);
   const handleError = (data) => {
@@ -161,8 +161,8 @@ function useFormErrors(initialerrors) {
   return { errors, handleError, resetError }
 }
 
-//propstypeをまとめる
+//PropTypesをまとめる
 
-DeleteButton.propsType = {
-  id: PropsType.number,
+DeleteButton.propTypes = {
+  id: PropTypes.number,
 }

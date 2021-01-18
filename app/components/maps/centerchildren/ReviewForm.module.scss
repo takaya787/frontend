@@ -1,0 +1,72 @@
+.draft {
+  position: relative;
+  &_button {
+    position: absolute;
+    top: -240px;
+    right: 30px;
+    z-index: 4;
+    background-color: #f3f3f3;
+    border: none;
+    animation: slideInTop 1.0s;
+    z-index: 10;
+  }
+  &_form {
+    background-color: #f3f3f3;
+    padding: 10px 30px 10px 20px;
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: -245px;
+    right: 20px;
+    z-index: 9;
+    animation: slideInTop 1.0s;
+    .title {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .form {
+      width: 100%;
+      line-height: 14px;
+      font-size: 12px;
+      padding: 3px;
+      margin-bottom: 5px;
+      &_submit {
+        cursor: pointer;
+        text-align: left;
+        margin-top: 20px;
+        margin-bottom: 0;
+      }
+    }
+    .textarea{
+      width: 100%;
+      height: 60px;
+      line-height: 14px;
+      font-size: 12px;
+      padding: 5px;
+    }
+    .labelnumber {
+      display: inline-block;
+    }
+    .number {
+      display: inline-block;
+      height: 20px;
+      width: 45px;
+      margin-left: 5px;
+    }
+  }
+  //ここからreviewform.jsx part and revieweditfrom.jsxのresponsive(position変更用)
+  //タブレットはパソコン側のサイズで見せたい
+  @media screen and ( max-width: 650px ){
+    &_button {
+      position: absolute;
+      top: -220px;
+      right: -130px;
+    }
+    &_form {
+      position: absolute;
+      top: -225px;
+      right: -140px;
+    }
+  }
+}

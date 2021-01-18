@@ -1,3 +1,10 @@
+import { useState, createContext } from 'react';
+import PropTypes from 'prop-types';
+
+import styles from './CenterPin.module.scss';
+//Child components
+import ReviewForm from './centerchildren/ReviewForm';
+
 const markerStyle = {
   height: 20,
   width: 20,
@@ -12,10 +19,41 @@ const hoverStyle = {
 };
 
 export default function CenterPin(props) {
+  const [menuopen, setMenuOpen] = useState(false);
+  const [formopen, setFormOpen] = useState(false);
+
   const style = props.$hover ? hoverStyle : markerStyle;
 
   return (
-    <div className="marker" style={style}>
-    </div>
+    <>
+      {!formopen && menuopen && (
+        <div>
+          <p>menu</p>
+          <button onClick={() => {
+            setMenuOpen(false);
+            setFormOpen(true);
+          }}>Form open</button>
+        </div>
+      )}
+      {formopen && !menuopen && (
+        <div>
+          <ReviewForm lat={props.lat} lng={props.lng} />
+          <button onClick={() => {
+            setMenuOpen(true);
+            setFormOpen(false);
+          }}>menu open</button>
+        </div>
+      )}
+      {!formopen && !menuopen && (
+        <div className={styles.marker} style={style} onClick={() => setMenuOpen(true)}>
+        </div>
+      )}
+    </>
   )
+}
+
+CenterPin.propTypes = {
+  $hover: PropTypes.bool,
+  lat: PropTypes.number,
+  lng: PropTypes.number,
 }
