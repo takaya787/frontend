@@ -37,6 +37,7 @@ export default function CheckForm() {
         }
         // console.log(data);
         setCenter({ lat: data.lat, lng: data.lng });
+        setZoom(9.0);
       })
       .catch((error) => {
         console.error('Error:', error);

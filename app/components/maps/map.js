@@ -49,6 +49,8 @@ export default function Map(props) {
             <CenterPin
               lat={center.lat}
               lng={center.lng}
+              center={center}
+              setCenter={setCenter}
             />
           </GoogleMapReact>
         </ZoomContext.Provider>

@@ -1,3 +1,4 @@
+// 初期画面のcss
 .marker {
   display: inline-block;
   vertical-align: middle;
@@ -25,4 +26,52 @@
   border-radius: 50%;
   box-sizing: border-box;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+
+// CenterPinのmenu用
+#center_menu {
+  position: relative;
+  .menus {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 240px;
+    border: none;
+    border-radius: 5px;
+    z-index: 7;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    .post {
+      color: white;
+      background-color: yellowgreen;
+      height: 30px;
+      width: 240px;
+      margin: 0 auto;
+      padding: 5px;
+      border: solid 1px white;
+      border-radius: 5px 5px 0 0;
+      filter: brightness(100%);
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+    .menu {
+      color: white;
+      background-color: yellowgreen;
+      height: 30px;
+      width: 120px;
+      margin: 0 auto;
+      padding: 5px;
+      border: solid 1px white;
+      filter: brightness(100%);
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+    .left {
+      border-radius: 0 0 0 5px;
+    }
+    .down {
+      border-radius: 0 0 5px 0;
+    }
+  }
 }
