@@ -7,10 +7,17 @@ import styles from './ReviewForm.module.scss';
 //mutateでkeyを元に更新できる
 import { mutate } from 'swr';
 
+//components
+import ReactStars from './ReactStars';
+
 const baseUrl = 'http://localhost:3000/api/reviews'
 
 export default function ReviewForm(props) {
+  //scoreをReviewStarsから入力するためにstateを用いる
+  const [score, setScore] = useState(0);
+
   const { register, handleSubmit, formstate } = useForm();
+
   const testsubmit = (value) => console.log(value);
   const onSubmit = (value) => {
     // console.log(value.title);
@@ -49,8 +56,10 @@ export default function ReviewForm(props) {
         console.error('Error:', error);
       });
   }
+
   return (
     <div className={styles.draft}>
+      <button className={styles.draft_button} onClick={props.CloseButton}>✕</button>
       <form
         className={styles.draft_form}
         onSubmit={handleSubmit(testsubmit)}
@@ -83,14 +92,14 @@ export default function ReviewForm(props) {
         <textarea className={`${styles.form} ${styles.textarea}`} name="advice" id="review_advice" ref={register()} placeholder="(例) パートタイムで仕事を見つけたいなら、ColesやWoolworthなどのスーパーマーケットは見つかりやすい。　など" />
 
         <label htmlFor="score">住み心地はいかがでしたか？　<span className="required">＊必須</span></label>
-        {/* <ReactStars
-          parentscoreChange={this.scoreChange}
+        <ReactStars
+          parentscoreChange={setScore}
           size={25}
         // value={3}
         // isEdit={false}
         />
         {/*　scoreformは隠し要素にして問題ないはず */}
-        {/*<input className="form" type="hidden" name="score" id="score" onChange={this.handleChange} required /> */}
+        <input className="form" type="hidden" name="score" id="score" value={score} ref={register()} />
 
         <input className={styles.form_submit} type="submit" value="投稿を送信" />
       </form>
@@ -101,4 +110,5 @@ export default function ReviewForm(props) {
 ReviewForm.propTypes = {
   lat: PropTypes.number,
   lng: PropTypes.number,
+  CloseButton: PropTypes.func,
 }

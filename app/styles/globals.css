@@ -22,3 +22,6 @@ a:hover {
   color: brown;
   padding-left: 10px;
 }
+button {
+  cursor: pointer;
+}

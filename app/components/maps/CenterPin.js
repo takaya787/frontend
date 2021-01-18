@@ -24,6 +24,10 @@ export default function CenterPin(props) {
 
   const style = props.$hover ? hoverStyle : markerStyle;
 
+  const CloseButton = () => {
+    setFormOpen(false);
+    setMenuOpen(false);
+  }
   return (
     <>
       {!formopen && menuopen && (
@@ -36,13 +40,9 @@ export default function CenterPin(props) {
         </div>
       )}
       {formopen && !menuopen && (
-        <div>
-          <ReviewForm lat={props.lat} lng={props.lng} />
-          <button onClick={() => {
-            setMenuOpen(true);
-            setFormOpen(false);
-          }}>menu open</button>
-        </div>
+        <>
+          <ReviewForm lat={props.lat} lng={props.lng} CloseButton={CloseButton} />
+        </>
       )}
       {!formopen && !menuopen && (
         <div className={styles.marker} style={style} onClick={() => setMenuOpen(true)}>
