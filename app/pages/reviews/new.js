@@ -1,11 +1,20 @@
+import Head from 'next/head';
+import Layout from '../../components/Layout';
 import Map from '../../components/maps/map'
+import Link from 'next/link'
 
 export default function New(props) {
   return (
-    <div>
-      <h3>Reviews new</h3>
-      <p>Googlemapをこの下に置く</p>
-      <Map />
-    </div>
+    <Layout>
+      <Head>
+        <title>Map | 住み心地.com</title>
+      </Head>
+      <div>
+        <Link href='/'>
+          <a>Home</a>
+        </Link>
+        <Map />
+      </div>
+    </Layout>
   )
 }

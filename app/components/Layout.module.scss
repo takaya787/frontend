@@ -1,0 +1,14 @@
+.header {
+  position: relative;
+  height: 30px;
+  background-color: burlywood;
+  &_title {
+    position: absolute;
+    top:0px;
+  }
+}
+
+.main {
+  margin-top: 30px;
+  padding: 0 10px;
+}
