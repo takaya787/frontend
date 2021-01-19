@@ -1,0 +1,109 @@
+//main scss
+.eachreview {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 17px;
+  text-align: center;
+  background-color: purple;
+  border-radius: 50%;
+  box-sizing: border-box;
+  z-index: 1;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 7px;
+    margin-left: -10px;
+    border: 5px solid transparent;
+    border-top: 5px solid purple;
+    z-index: 0;
+  }
+}
+
+// FullContent用 scss
+.contents {
+  position: relative;
+  .button {
+    position: absolute;
+    top: -150px;
+    right: 30px;
+    background-color: white;
+    border: none;
+    animation: slideInTop 1.0s;
+    z-index: 10;
+  }
+  .editbutton {
+    height: 20px;
+    width: 70px;
+    background-color: white;
+    border: none;
+    animation: slideInTop 1.0s;
+    z-index: 10;
+    position: absolute;
+    top: -153px;
+    right: 50px;
+    color: blue;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .content {
+    text-align: left;
+    background-color: white;
+    padding: 10px;
+    width: 200px;
+    border-radius: 20px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: -160px;
+    right: 20px;
+    z-index: 9;
+    animation: slideInTop 1.0s;
+    &_title {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    &_text {
+      line-height: 16px;
+      font-size: 14px;
+      padding: 0;
+      margin: 0;
+      // margin-bottom: 5px;
+    }
+    &_score {
+      display: inline-block;
+      width: 40px;
+      line-height: 18px;
+      font-size: 16px;
+      padding: 0;
+      margin: 0;
+    }
+    &_star {
+      padding: 0;
+      margin: 0;
+      height: 20px;
+      width: 140px;
+      display: inline-block;
+    }
+  }
+  //ここからReviewfullcontent.jsx partのresponsive(position変更用)
+  //タブレットはパソコン側のサイズで見せたい
+  @media screen and ( max-width: 650px ){
+    .button {
+      position: absolute;
+      right: -120px;
+    }
+    .editbutton {
+      position: absolute;
+      right: -100px;
+    }
+    .content {
+      position: absolute;
+      right: -130px;
+    }
+  }
+}

@@ -10,13 +10,15 @@ const markerStyle = {
   height: 20,
   width: 20,
   backgroundColor: 'red',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  zIndex: '3',
 };
 const hoverStyle = {
   height: 20,
   width: 20,
   backgroundColor: 'blue',
   cursor: 'pointer',
+  zIndex: '3',
 };
 
 export default function CenterPin(props) {

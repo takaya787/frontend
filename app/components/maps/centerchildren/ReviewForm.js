@@ -18,7 +18,6 @@ export default function ReviewForm(props) {
 
   const { register, handleSubmit, formstate } = useForm();
 
-  const testsubmit = (value) => console.log(value);
   const onSubmit = (value) => {
     // console.log(value.title);
     fetch(baseUrl, {
@@ -49,8 +48,10 @@ export default function ReviewForm(props) {
           handleError(data.errors);
           return
         }
-        // console.log('Review is successfully created');
-        // mutate(baseUrl);
+        console.log('Review is successfully created');
+        mutate("http://localhost:3000/api/reviews.json");
+        //投稿後にFormを閉じる
+        props.CloseButton();
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -62,7 +63,7 @@ export default function ReviewForm(props) {
       <button className={styles.draft_button} onClick={props.CloseButton}>✕</button>
       <form
         className={styles.draft_form}
-        onSubmit={handleSubmit(testsubmit)}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <h3 className={styles.title}>投稿内容を入力してください</h3>
         <label htmlFor="reason">滞在理由について(30字以内）<span className="required">＊必須</span></label>
