@@ -4,15 +4,17 @@ import PropTypes from 'prop-types';
 //components
 import ReactStars from '../centerchildren/ReactStars';
 //others
+import { UserContext } from '../../../pages/_app';
 import { ReviewPropsContext } from '../EachReview'
 import styles from '../EachReview.module.scss';
 
 export default function FullContent(props) {
+  const { user } = useContext(UserContext);
   const { review } = useContext(ReviewPropsContext);
 
   return (
     <div className={styles.contents} styles={{ zIndex: '5' }}>
-      <button className={styles.button} onClick={props.handleReview}>✕</button>
+      <button className={styles.button} onClick={props.handleClose}>✕</button>
       <div className={styles.content}>
         <p className={styles.content_title} >住み心地</p>
         <p className={styles.content_score}>{review.score}</p>
@@ -31,10 +33,14 @@ export default function FullContent(props) {
         <p className={styles.content_text}>{review.advice}</p>
       </div>
       {/* reviewの編集ボタンはUserとcurrentUserが等しい時のみ表示 */}
+      {user.id === review.User && (
+        <button className={styles.editbutton} onClick={props.handleEdit}>編集する</button>
+      )}
     </div>
   )
 }
 
 FullContent.propTypes = {
-  handleReview: PropTypes.func,
+  handleClose: PropTypes.func,
+  handleEdit: PropTypes.func,
 }

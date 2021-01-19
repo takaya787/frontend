@@ -34,6 +34,9 @@
     border: none;
     animation: slideInTop 1.0s;
     z-index: 10;
+    &:focus {
+      outline: none;
+    }
   }
   .editbutton {
     height: 20px;
@@ -48,6 +51,9 @@
     color: blue;
     &:hover {
       text-decoration: underline;
+    }
+    &:focus {
+      outline: none;
     }
   }
   .content {

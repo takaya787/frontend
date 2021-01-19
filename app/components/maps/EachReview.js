@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 //components
 import FullContent from './Eachreviewchildren/FullContent';
+import EditForm from './Eachreviewchildren/EditForm';
+
 //others
 import styles from './EachReview.module.scss';
 
@@ -15,6 +17,15 @@ export default function EachReview(props) {
 
   const handleReview = () => {
     setReviewOpen(!reviewopen);
+    setEditOpen(false);
+  }
+
+  const handleEdit = () => {
+    setEditOpen(true);
+    setReviewOpen(false);
+  }
+  const handleClose = () => {
+    setReviewOpen(false);
     setEditOpen(false);
   }
   const reviewvalue = {
@@ -30,6 +41,7 @@ export default function EachReview(props) {
       //ここから位置情報
       lat: props.lat,
       lng: props.lng,
+      User: props.User,
     }
   }
 
@@ -39,7 +51,13 @@ export default function EachReview(props) {
         <>
           {reviewopen && (
             <FullContent
-              handleReview={handleReview}
+              handleClose={handleClose}
+              handleEdit={handleEdit}
+            />
+          )}
+          {editopen && (
+            <EditForm
+              handleClose={handleClose}
             />
           )}
         </>
