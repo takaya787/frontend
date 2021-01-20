@@ -37,7 +37,6 @@ export default function index(props) {
           </div>
           ))
         }
-        <h1>USERの作成</h1>
       </div >
     </Layout>
   )

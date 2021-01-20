@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 //react-iconsからダウンロード
 import { AiOutlineMenu } from 'react-icons/ai';
 import { ImCross } from 'react-icons/im';
 //others
+
+import { UserContext } from '../../pages/_app';
 import styles from './HeaderMenu.module.scss';
 import Auth from '../../modules/auth';
 
 export default function LoginHeader() {
+  const { setUser } = useContext(UserContext);
   const [menuopen, setMenuOpen] = useState(false);
   const router = useRouter()
   const LogoutButton = (e) => {
     e.preventDefault();
+    setUser({ email: '', id: 0, name: '' })
     Auth.logout();
     router.push("/");
   }
@@ -26,7 +30,7 @@ export default function LoginHeader() {
           </button >
           <ul className={styles.top_menu_lists}>
             <Link href="/">
-              <a className={styles.link}><li className={styles.link_part}>Top</li></a>
+              <a className={styles.link}><li className={styles.link_part}>Home</li></a>
             </Link>
             <Link href="/reviews/new">
               <a className={styles.link}><li className={styles.link_part}>Map</li></a>

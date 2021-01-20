@@ -3,9 +3,10 @@ import { useState, useEffect, createContext } from 'react';
 import Auth from '../modules/auth';
 
 export const UserContext = createContext();
+const baseUrl = `${process.env.BASE_URL}auto_login`
 
 function MyApp({ Component, pageProps }) {
-  const [user, setUser] = useState({ email: '', id: 0 })
+  const [user, setUser] = useState({ email: '', id: 0, name: '' })
   const Uservalue = {
     user,
     setUser,
@@ -13,8 +14,12 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(function () {
     const token = Auth.getToken();
+    if (token === 'undefined') {
+      Auth.logout();
+      return
+    }
     if (user.id === 0 && token) {
-      fetch('http://localhost:3000/api/auto_login', {
+      fetch(baseUrl, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -24,8 +29,12 @@ function MyApp({ Component, pageProps }) {
         .then((data) => {
           // console.log('dataを表示')
           console.log(data) // {id: 1, email: "test@example.com"}
+          if (data.error) {
+            alert('ページをreloadしてください');
+            return
+          }
           const user_data = data.user
-          setUser({ email: user_data.email, id: user_data.id });
+          setUser({ email: user_data.email, id: user_data.id, name: user_data.name });
         })
     }
   }, []) // [] => changed to => [user]

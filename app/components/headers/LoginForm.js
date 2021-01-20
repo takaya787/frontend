@@ -36,7 +36,7 @@ export default function LoginForm() {
         console.log("Logined successfully");
         Auth.login(data.token);
         const user_data = data.user
-        setUser({ email: user_data.email, id: user_data.id });
+        setUser({ email: user_data.email, id: user_data.id, name: user_data.name });
       })
       .catch((error) => {
         console.error('Error:', error);

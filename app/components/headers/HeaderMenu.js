@@ -19,7 +19,7 @@ export default function HeaderMenu() {
           </button >
           <ul className={styles.top_menu_lists}>
             <Link href="/">
-              <a className={styles.link}><li className={styles.link_part}>Top</li></a>
+              <a className={styles.link}><li className={styles.link_part}>Home</li></a>
             </Link>
             <Link href="/reviews/new">
               <a className={styles.link}><li className={styles.link_part}>Guest Map</li></a>
