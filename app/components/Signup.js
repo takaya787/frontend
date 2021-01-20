@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from './Signup.module.scss';
 //components
-import UserForm from './UserForm';
-import LoginForm from './LoginForm';
+import UserForm from './headers/UserForm';
+import LoginForm from './headers/LoginForm';
 
 export default function Signup(props) {
   const [isSignup, setIsSignup] = useState(false);

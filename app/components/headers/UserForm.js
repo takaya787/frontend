@@ -2,13 +2,13 @@ import { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
 
-import { baseUrl } from '../pages/index';
-import Auth from '../modules/auth'
+import { baseUrl } from '../../pages/index';
+import Auth from '../../modules/auth'
 
 //mutateでkeyを元に更新できる
 import { mutate } from 'swr';
 //contexts
-import { UserContext } from '../pages/_app';
+import { UserContext } from '../../pages/_app';
 
 export default function UserForm() {
   const { register, handleSubmit, formstate } = useForm();

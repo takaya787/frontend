@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import Auth from '../modules/auth'
+import Auth from '../../modules/auth'
 //contexts
-import { UserContext } from '../pages/_app';
+import { UserContext } from '../../pages/_app';
 
 const loginUrl = 'http://localhost:3000/api/login';
 

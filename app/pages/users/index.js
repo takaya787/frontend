@@ -4,7 +4,8 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Layout from '../../components/Layout';
 
-import UserForm, { DeleteButton } from '../../components/UserForm'
+import UserForm, { DeleteButton } from '../../components/headers/UserForm';
+
 export const baseUrl = "http://localhost:3000/api/users";
 const fetcher = () => fetch(baseUrl).then(res => res.json());
 
@@ -36,7 +37,6 @@ export default function index(props) {
           ))
         }
         <h1>USERの作成</h1>
-        <UserForm />
       </div >
     </Layout>
   )
