@@ -1,8 +1,10 @@
 import styles from './Layout.module.scss';
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from 'next/head';
+import Link from 'next/link';
+import Auth from '../modules/auth';
 //components
 import HeaderMenu from './headers/HeaderMenu';
+import LoginHeader from './headers/LoginHeader';
 
 export default function Layout({ children, home }) {
   return (
@@ -24,8 +26,12 @@ export default function Layout({ children, home }) {
           <h3 className={styles.header_title}>住み心地.com</h3>
         </header>
       )}
-      {/* headerのclick menu */}
-      <HeaderMenu />
+      {/* haumbuger menu*/}
+      {Auth.isLoggedIn() ? (
+        <LoginHeader />
+      ) : (
+          <HeaderMenu />
+        )}
       <main className={styles.main}>{children}</main>
     </div>
   )

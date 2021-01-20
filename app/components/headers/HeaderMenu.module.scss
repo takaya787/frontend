@@ -89,6 +89,23 @@
         list-style: none;
         text-align: center;
         border-bottom: 1px solid white;
+        &_button {
+          display: inline;
+          height: 30px;
+          width: auto;
+          color: white;
+          background-color: red;
+          border: none;
+          border-radius: 10px;
+          font-weight: bold;
+          opacity: 1.0;
+          &:hover {
+            opacity: 0.6;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
       }
       //Loginheaderのlogout用のcss
       .logout {

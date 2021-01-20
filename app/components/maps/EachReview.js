@@ -21,7 +21,7 @@ export default function EachReview(props) {
   }
 
   const handleEdit = () => {
-    setEditOpen(true);
+    setEditOpen(!editopen);
     setReviewOpen(false);
   }
   const handleClose = () => {
