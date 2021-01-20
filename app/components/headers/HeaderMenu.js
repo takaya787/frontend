@@ -4,9 +4,12 @@ import Link from 'next/link';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { ImCross } from 'react-icons/im';
 import styles from './HeaderMenu.module.scss';
+//components
+import Signup from '../Signup';
 
 export default function HeaderMenu() {
   const [menuopen, setMenuOpen] = useState(false);
+
   return (
     <div className={styles.top}>
       { menuopen && (
@@ -27,12 +30,9 @@ export default function HeaderMenu() {
             {/* <a href="/" className={styles.link}><li className={styles.link_part}>How to use</li></a>
             <a href="/" className={styles.link}><li className={styles.link_part}>Guest Map</li></a> */}
             <li className={styles.component}>
-              {/* <Signup
-                signup={this.props.signup}
-                login={this.props.login}
-                authenticityToken={this.props.authenticityToken}
+              <Signup
                 title="はじめる"
-              /> */}
+              />
             </li>
           </ul>
         </div>

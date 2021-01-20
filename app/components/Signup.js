@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-
+import styles from './Signup.module.scss';
+//components
 import UserForm from './UserForm';
 import LoginForm from './LoginForm';
-import propTypes from "prop-types";
 
 export default function Signup(props) {
   const [isSignup, setIsSignup] = useState(false);
@@ -23,24 +23,30 @@ export default function Signup(props) {
   return (
     <>{/* 始めはボタンが表示される */}
       { !isSignup && !isLogin &&
-        (<button onClick={Signupcontroll}>{props.title}</button>)
+        (<button onClick={Signupcontroll} className={styles.initial}>{props.title}</button>)
       }
       {/* Sign up用のformが表示される */}
       { isSignup && !isLogin &&
-        (<div>
-          <button onClick={Closemodal}>閉じる</button>
-          <UserForm />
-          <button onClick={Logincontroll}>ログインはこちら</button>
+        (<div className={styles.modal}>
+          <div className={styles.content}>
+            <button className={styles.content_close} onClick={Closemodal}>×</button>
+            <h2 className={styles.content_title}>まずはユーザー登録！</h2>
+            <UserForm />
+            <button className={styles.content_switch} onClick={Logincontroll}>ログインはこちら</button>
+          </div>
         </div>)
       }
       {/* Login用のformが表示される */}
-      { !isSignup && isLogin &&
-        (<div>
-          <button onClick={Closemodal}>閉じる</button>
-          <LoginForm />
-          <button onClick={Signupcontroll}>サインインはこちら</button>
-        </div>)
-      }
+      { !isSignup && isLogin && (
+        <div className={styles.modal}>
+          <div className={styles.content}>
+            <button className={styles.content_close} onClick={Closemodal}>×</button>
+            <h2 className={styles.content_title}>Log inはこちら！</h2>
+            <LoginForm />
+            <button className={styles.content_switch} onClick={Signupcontroll}>ユーザー登録はこちら</button>
+          </div>
+        </div>
+      )}
     </>
   )
 }

@@ -1,5 +1,5 @@
 /* animation 設定 */
-/* @keyframes slidein {
+@keyframes slidein {
   0%{
     opacity: 0;
     transform:translateY(-150)
@@ -8,7 +8,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-} */
+}
 @keyframes slideInTop {
   from {
     opacity: 0;
