@@ -17,9 +17,6 @@ export default function index(props) {
         <title>User | 住み心地.com</title>
       </Head>
       <div>
-        <Link href='/'>
-          <a href="/"> Home</a>
-        </Link>
         <h1>USER一覧</h1>
         {
           error && (

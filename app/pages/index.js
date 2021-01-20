@@ -1,9 +1,11 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import Signup from '../components/Signup'
 import Auth from '../modules/auth';
 //contexts
 import { UserContext } from './_app';
+import Layout from '../components/Layout';
 
 export const baseUrl = "http://localhost:3000/api/users";
 
@@ -15,28 +17,26 @@ export default function Home(props) {
     setUser({ email: '', id: 0 })
   }
   return (
-    <div>
-      <h1>Home</h1>
-      <Link href='/users'>
-        <a>Users</a>
-      </Link>
-      <Link href='/reviews/new'>
-        <a>Reviews</a>
-      </Link>
-      {Auth.isLoggedIn() && (
-        <div>
-          <h3>You are logined</h3>
-          <p>Your id is {user.id}</p>
-          <button onClick={Logout}>Log out</button>
-        </div>
-      )}
-      {!Auth.isLoggedIn() && (
-        <div>
-          <h2>Sign up</h2>
-          <Signup title='Sign up' />
-        </div>
-      )}
-    </div>
+    <Layout>
+      <Head>
+        <title>Map | 住み心地.com</title>
+      </Head>
+      <div>
+        {Auth.isLoggedIn() && (
+          <div>
+            <h3>You are logined</h3>
+            <p>Your id is {user.id}</p>
+            <button onClick={Logout}>Log out</button>
+          </div>
+        )}
+        {!Auth.isLoggedIn() && (
+          <div>
+            <h2>Sign up</h2>
+            <Signup title='Sign up' />
+          </div>
+        )}
+      </div>
+    </Layout>
   )
 }
 

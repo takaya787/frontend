@@ -1,6 +1,8 @@
 import styles from './Layout.module.scss';
 import Head from 'next/head'
 import Link from 'next/link'
+//components
+import HeaderMenu from './headers/HeaderMenu';
 
 export default function Layout({ children, home }) {
   return (
@@ -22,9 +24,8 @@ export default function Layout({ children, home }) {
           <h3 className={styles.header_title}>住み心地.com</h3>
         </header>
       )}
-      <div className={styles.menu}>
-
-      </div>
+      {/* headerのclick menu */}
+      <HeaderMenu />
       <main className={styles.main}>{children}</main>
     </div>
   )

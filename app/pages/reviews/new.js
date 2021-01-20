@@ -11,9 +11,6 @@ export default function New(props) {
         <title>Map | 住み心地.com</title>
       </Head>
       <div>
-        <Link href='/'>
-          <a>Home</a>
-        </Link>
         <div className={styles.title}>
           <h1 className={styles.title_text}>レビューを投稿してみよう！</h1>
         </div>
