@@ -9,6 +9,7 @@ import Auth from '../../modules/auth'
 import { mutate } from 'swr';
 //contexts
 import { UserContext } from '../../pages/_app';
+import styles from './Form.module.scss';
 
 export default function UserForm() {
   const { register, handleSubmit, formstate } = useForm();
@@ -59,51 +60,52 @@ export default function UserForm() {
       });
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="name">Name</label>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <label className={styles.label} htmlFor="name">お名前</label>
       <input
+        className={styles.form_input}
         id="name"
         name="name"
-        placeholder="ユーザー名を入力"
         ref={register({ required: 'ユーザー名は必須です' })}
       />
-      <br />
-      <label htmlFor="email">Email</label>
+      <label className={styles.label} htmlFor="email">Eメール</label>
       <input
         id="email"
+        className={styles.form_input}
         name="email"
         type="email"
-        placeholder="emailを入力"
         ref={register({ required: 'emailは必須です' })}
       />
       {errors.email !== '' && (
-        <p>Email {errors.email}</p>
+        <p className={styles.form_error}>Email {errors.email}</p>
       )}
-      <br />
-      <label htmlFor="password">Password</label>
+      <label className={styles.label} htmlFor="password">パスワード</label>
       <input
         id="password"
+        className={styles.form_input}
         type="password"
         name="password"
-        placeholder="パスワードを入力"
         ref={register({ required: 'passwordは必須です' })}
       />
       {errors.password !== '' && (
-        <p>Password {errors.password}</p>
+        <p className={styles.form_error}>Password {errors.password}</p>
       )}
-      <br />
-      <label htmlFor="password_confirmation">Password_confirmation</label>
+      <label
+        className={styles.label}
+        htmlFor="password_confirmation">
+        パスワード確認用
+      </label>
       <input
         id="password_confirmation"
+        className={styles.form_input}
         type="password"
         name="password_confirmation"
-        placeholder="確認用にパスワードを入力してください"
         ref={register({ required: 'password_confirmationは必須です' })}
       />
       {errors.password_confirmation !== "" && (
-        <p>Password_confirmation {errors.password_confirmation}</p>
+        <p className={styles.form_error}>Password_confirmation {errors.password_confirmation}</p>
       )}
-      <input type="submit" />
+      <button type="submit" className={styles.form_submit}>登録する</button>
     </form>
   )
 }

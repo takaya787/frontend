@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Auth from '../../modules/auth'
 //contexts
 import { UserContext } from '../../pages/_app';
+import styles from './Form.module.scss';
 
 const loginUrl = 'http://localhost:3000/api/login';
 
@@ -42,25 +43,24 @@ export default function LoginForm() {
       });
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="email">Email</label>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      <label className={styles.label} htmlFor="email">Eメール</label>
       <input
+        className={styles.form_input}
         id="email"
         name="email"
         type="email"
-        placeholder="emailを入力"
         ref={register({ required: 'emailは必須です' })}
       />
-      <br />
-      <label htmlFor="password">Password</label>
+      <label className={styles.label} htmlFor="password">パスワード</label>
       <input
+        className={styles.form_input}
         id="password"
         type="password"
         name="password"
-        placeholder="パスワードを入力"
         ref={register({ required: 'passwordは必須です' })}
       />
-      <input type="submit" />
+      <button type="submit" className={styles.form_submit}>ログインする</button>
     </form>
   )
 }
