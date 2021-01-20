@@ -4,9 +4,10 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Layout from '../../components/Layout';
 
-import UserForm, { DeleteButton } from '../../components/headers/UserForm';
+import { DeleteButton } from '../../components/headers/UserForm';
 
-export const baseUrl = "http://localhost:3000/api/users";
+const baseUrl = `${process.env.BASE_URL}users`
+
 const fetcher = () => fetch(baseUrl).then(res => res.json());
 
 export default function index(props) {

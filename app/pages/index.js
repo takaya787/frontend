@@ -7,8 +7,6 @@ import Auth from '../modules/auth';
 import { UserContext } from './_app';
 import Layout from '../components/Layout';
 
-export const baseUrl = "http://localhost:3000/api/users";
-
 export default function Home(props) {
   const { user, setUser } = useContext(UserContext);
 

@@ -15,7 +15,7 @@ import styles from '../centerchildren/ReviewForm.module.scss';
 export default function EditForm(props) {
   const { review } = useContext(ReviewPropsContext);
 
-  const baseUrl = `http://localhost:3000/api/reviews/${review.id}`
+  const baseUrl = `${process.env.BASE_URL}reviews/${review.id}`
   //scoreをReviewStarsから入力するためにstateを用いる
   const [score, setScore] = useState(review.score);
 

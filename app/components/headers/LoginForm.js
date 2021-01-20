@@ -5,7 +5,7 @@ import Auth from '../../modules/auth'
 import { UserContext } from '../../pages/_app';
 import styles from './Form.module.scss';
 
-const loginUrl = 'http://localhost:3000/api/login';
+const baseUrl = process.env.BASE_URL + 'login';
 
 export default function LoginForm() {
   //_appからcontextsを受け取る
@@ -15,7 +15,7 @@ export default function LoginForm() {
 
   const onSubmit = (value) => {
     // console.log(value.title);
-    fetch(loginUrl, {
+    fetch(baseUrl, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json'

@@ -17,7 +17,7 @@ export const ZoomContext = createContext();
 const API_KEY = process.env.GOOGLE_API_KEY;
 
 //swrによるdata通信
-const baseUrl = "http://localhost:3000/api/reviews.json";
+const baseUrl = process.env.BASE_URL + 'reviews.json';
 const fetcher = () => fetch(baseUrl).then(res => res.json());
 
 export default function Map(props) {

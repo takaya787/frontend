@@ -10,8 +10,7 @@ import { mutate } from 'swr';
 //components
 import ReactStars from './ReactStars';
 
-const baseUrl = 'http://localhost:3000/api/reviews'
-
+const baseUrl = process.env.BASE_URL + 'reviews';
 export default function ReviewForm(props) {
   //scoreをReviewStarsから入力するためにstateを用いる
   const [score, setScore] = useState(0);

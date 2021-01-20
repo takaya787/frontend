@@ -11,10 +11,6 @@ function MyApp({ Component, pageProps }) {
     setUser,
   };
 
-  // useEffect(function () {
-
-  //   Auth.getToken(null);
-  // },[])
   useEffect(function () {
     const token = Auth.getToken();
     if (user.id === 0 && token) {
@@ -32,7 +28,7 @@ function MyApp({ Component, pageProps }) {
           setUser({ email: user_data.email, id: user_data.id });
         })
     }
-  }, []); // [] => changed to => [user]
+  }, []) // [] => changed to => [user]
 
   return (
     <UserContext.Provider value={Uservalue}>

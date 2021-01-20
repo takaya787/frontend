@@ -11,7 +11,7 @@ export default function Layout({ children, home }) {
     <div className={styles.container}>
       <Head>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta name="keyword" content="住み心地,海外経験をシェア" />
         <meta name="description" content="あなたの海外経験を通して感じた住み心地を投稿してみよう！　あなたが気になる街の住み心地をチェック！" />
         {/*-- ogp関連 -- */}

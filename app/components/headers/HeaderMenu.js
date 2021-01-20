@@ -22,7 +22,7 @@ export default function HeaderMenu() {
               <a className={styles.link}><li className={styles.link_part}>Top</li></a>
             </Link>
             <Link href="/reviews/new">
-              <a className={styles.link}><li className={styles.link_part}>Map</li></a>
+              <a className={styles.link}><li className={styles.link_part}>Guest Map</li></a>
             </Link>
             <Link href="/users">
               <a className={styles.link}><li className={styles.link_part}>Users</li></a>

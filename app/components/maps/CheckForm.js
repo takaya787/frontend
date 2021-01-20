@@ -9,7 +9,7 @@ import styles from './CheckForm.module.scss'
 import { SiGooglemaps } from 'react-icons/si';
 import { GiMagnifyingGlass } from 'react-icons/gi';
 
-const URL = "http://localhost:3000/api/reviews/check";
+const baseUrl = `${process.env.BASE_URL}reviews/check`
 
 export default function CheckForm() {
   const { register, handleSubmit } = useForm();
@@ -19,7 +19,7 @@ export default function CheckForm() {
 
   const onSubmit = (value) => {
     console.log(value);
-    fetch(URL, {
+    fetch(baseUrl, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
