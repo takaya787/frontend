@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router'
 import PropTypes from 'prop-types';
 
 import Auth from '../../modules/auth'
@@ -13,6 +14,7 @@ import styles from './Form.module.scss';
 const baseUrl = process.env.BASE_URL + 'users'
 
 export default function UserForm() {
+  const router = useRouter();
   const { register, handleSubmit, formstate } = useForm();
   const initialerrors = { name: '', email: '', password: '', password_confirmation: '' };
 
@@ -55,6 +57,7 @@ export default function UserForm() {
         //Login関連の処理 終了
         resetError();
         mutate(baseUrl);
+        router.push('/reviews/new');
       })
       .catch((error) => {
         console.error('Error:', error);

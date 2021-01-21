@@ -1,10 +1,11 @@
 import styles from './Layout.module.scss';
 import Head from 'next/head';
 import Link from 'next/link';
-import Auth from '../modules/auth';
+import Image from 'next/image';
 //components
 import HeaderMenu from './headers/HeaderMenu';
 import LoginHeader from './headers/LoginHeader';
+import Auth from '../modules/auth';
 
 export default function Layout({ children, home }) {
   return (
@@ -23,7 +24,9 @@ export default function Layout({ children, home }) {
       </Head>
       {!home && (
         <header className={styles.header}>
-          <h3 className={styles.header_title}>住み心地.com</h3>
+          <Link href='/'>
+            <Image className={styles.header_logo} src='/images/logo.png' alt="Logo" height={35} width={200} />
+          </Link>
         </header>
       )}
       {/* haumbuger menu*/}

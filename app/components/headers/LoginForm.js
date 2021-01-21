@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
 import Auth from '../../modules/auth'
 //contexts
 import { UserContext } from '../../pages/_app';
@@ -8,6 +9,7 @@ import styles from './Form.module.scss';
 const baseUrl = process.env.BASE_URL + 'login';
 
 export default function LoginForm() {
+  const router = useRouter();
   //_appからcontextsを受け取る
   const { setUser } = useContext(UserContext);
 
@@ -27,7 +29,6 @@ export default function LoginForm() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         if (data.error) {
           // console.log(data.error);
           alert(data.error);
@@ -37,6 +38,7 @@ export default function LoginForm() {
         Auth.login(data.token);
         const user_data = data.user
         setUser({ email: user_data.email, id: user_data.id, name: user_data.name });
+        router.push('/reviews/new');
       })
       .catch((error) => {
         console.error('Error:', error);
