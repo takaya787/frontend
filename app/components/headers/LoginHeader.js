@@ -32,6 +32,9 @@ export default function LoginHeader() {
             <Link href="/">
               <a className={styles.link}><li className={styles.link_part}>Home</li></a>
             </Link>
+            <Link href="/beginner">
+              <a className={styles.link}><li className={styles.link_part}>How to use</li></a>
+            </Link>
             <Link href="/reviews/new">
               <a className={styles.link}><li className={styles.link_part}>Map</li></a>
             </Link>

@@ -1,0 +1,132 @@
+#beginner {
+  position: relative;
+  max-width: 1320px;
+  text-align: center;
+  box-sizing: border-box;
+  //a タグの無駄なeffectを消す
+  .hover {
+    text-decoration: none;
+    color:black;
+    &:hover {
+      text-decoration: underline;
+      color:black;
+    }
+  }
+  .keyword {
+    color: darkorange;
+    font-weight: bold;
+  }
+  .title {
+    &_main {
+      margin: 0 auto;
+      padding: 5%;
+      width: 100%;
+      line-height: 40px;
+      background-color: #EFEFF4;
+    }
+    &_text {
+      padding: 20px;
+      font-size: 16px;
+      line-height: 25px;
+    }
+  }
+  #index {
+    width: 320px;
+    margin: 20px auto;
+    background-color: #EFEFF4;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+    &_title {
+      font-size: 20px;
+    }
+    &_lists {
+      padding-left: 0;
+      list-style: none;
+      .list {
+        padding: 5px 0;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+  #what {
+    width: 80%;
+    margin: 20px auto;
+    .title {
+      line-height: 30px;
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+    .image {
+      width: 80%;
+      // max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  #how {
+    width: 80%;
+    margin: 20px auto;
+    .title {
+      text-align: left;
+      margin-bottom: 30px;
+      margin-left: 10%;
+      margin-right: 10%;
+      h2 {
+        font-size: 1.2em;
+        line-height: 30px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 1.0em;
+        line-height: 20px;
+        margin-bottom: 10px;
+      }
+    }
+    .explain {
+      text-align: left;
+      margin-left: 10%;
+      margin-right: 10%;
+      margin-bottom: 30px;
+      &_title {
+        margin-bottom: 5px;
+        line-height: 25px;
+        font-size: 0.8em;
+      }
+      &_text {
+        line-height: 18px;
+        p {
+          margin: 13px 0;
+        }
+        .start {
+         display: inline;
+        }
+      }
+      .image {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        object-fit: cover;
+      }
+      .small {
+        width: 60%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .link {
+        color: brown;
+        font-size: 18px;
+        font-weight: bold;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .bold {
+        font-weight: bold;
+        font-size: 1.0em;
+        color: red;
+      }
+    }
+  }
+}
