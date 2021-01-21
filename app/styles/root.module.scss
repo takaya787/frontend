@@ -44,4 +44,116 @@
       font-size: 14px;
     }
   }
+  .main {
+    width: 100%;
+    max-width: 1440px;
+    height: auto;
+    text-align: center;
+    &_icon {
+      margin: 30px 0;
+      height: 50px;
+      width: auto;
+      text-align: center;
+    }
+    &_question {
+      line-height: 30px;
+      margin:0 auto 30px auto;
+      padding: 0 15px;
+      width:300px;
+      text-decoration: underline;
+      font-size: 22px;
+      color: #666;
+    }
+    &_explains {
+      display: flex;
+      flex-direction: row;
+      margin: 0 50px;
+      text-align: left;
+      .explain {
+        width: 50%;
+        padding: 0 20px;
+        &_title {
+          line-height: 30px;
+        }
+        &_text {
+          margin: 16px 0;
+          line-height: 20px;
+          font-size: 16px;
+          &_keyword {
+            font-size: 18px;
+            color: darkorange;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+//rensponsive starts
+@media screen and (max-width:767px) {
+  #root {
+    .image {
+      text-align: right;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .window {
+      width: 200px;
+      height: auto;
+      padding: 10px;
+      position: absolute;
+      top: 50px;
+      right: 10%;
+      &_title {
+        margin-bottom: 10px;
+        font-size: 30px;
+        text-align: center;
+      }
+      &_description {
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+      &_signup {
+        margin-top: 10px;
+      }
+    }
+    .guide {
+      width: 200px;
+      height: 150px;
+      position: absolute;
+      top: 260px;
+      right: 10%;
+    }
+    .main {
+      &_icon {
+       margin: 0;
+       height: 90px;
+       padding: 20px;
+      }
+      &_explains {
+        display: flex;
+        flex-direction: column;
+        margin: 15px auto;
+        text-align: left;
+        .explain {
+          width: 80%;
+          padding: 0 20px 20px;
+          margin: 0 auto;
+          &_title {
+            line-height: 35px;
+            font-size: 25px;
+          }
+          &_text {
+            line-height: 20px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  // root.erb ends
 }
