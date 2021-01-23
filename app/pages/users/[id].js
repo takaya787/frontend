@@ -7,7 +7,6 @@ import styles from '../../styles/User.module.scss';
 
 export default function User(props) {
   const baseUrl = `${process.env.BASE_URL}users/${props.id}`
-  // const testurl = `https://railsbackend2020.herokuapp.com/api/users/${props.id}`
 
   const fetcher = () => fetch(baseUrl).then(res => res.json());
 
@@ -52,7 +51,7 @@ export default function User(props) {
               </ul>
             </div>
           ) : (
-              <></>
+              <><h3>Reviews 0</h3></>
             )
         }
       </div>
@@ -61,12 +60,12 @@ export default function User(props) {
 }
 //path内のparams要素をparamsとして、propsして、各ページをレンダリングする
 export async function getStaticPaths() {
-  // const paths = await getAllUserIDs();
-  const paths = ['/users/4', '/users/5']
-  console.log(paths);
+  const paths = await getAllUserIDs();
+  // const paths = ['/users/4', '/users/5']
+  // console.log(paths);
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 //path内のparamsをpropしてる

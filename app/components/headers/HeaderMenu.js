@@ -30,8 +30,6 @@ export default function HeaderMenu() {
             <Link href="/users">
               <a className={styles.link}><li className={styles.link_part}>Users</li></a>
             </Link>
-            {/* <a href="/" className={styles.link}><li className={styles.link_part}>How to use</li></a>
-            <a href="/" className={styles.link}><li className={styles.link_part}>Guest Map</li></a> */}
             <li className={styles.component}>
               <Signup
                 title="はじめる"

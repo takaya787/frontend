@@ -1,5 +1,5 @@
 # 住み心地.com
-[ページはこちら](https://frontend-3es8kqypv.vercel.app/)
+[ページはこちら](https://frontend.takaya787.vercel.app/)
 
 こちらはNext.jsによるフロントエンド側のAppレポジトリーです。
 **バックエンド**側のRails API側のレポジトリーは[こちら](https://github.com/takaya787/backend)
@@ -14,11 +14,11 @@
 
 ## 使用技術
 
-* Ruby 2.7.2, Rails 6.0.3
-* React.js
+* Ruby 2.7.2, Rails 6.1.1
+* React
 * Next.js
 * Docker, Docker-compose (開発環境)
-* Mysql (DB)
+* Postgresql(DB)
 * Google-Map API
 * Geocoding API
 
@@ -44,6 +44,4 @@
 * 投稿者のみ、Mapから直接レビューの編集フォームを表示できる機能
 
 ## 苦労した点
-今回はメイン機能であるreviewの投稿、編集、閲覧機能を同一ページ内で行えるように全て非同期通信で実装しました。
-
-react内での情報を非同期でrails側のcontrollerに送信し、完了後にreactからrails内のページ情報を読み込むことで実装しました。
+Single Page Applicationとして作成するためにfrontend部分とbackend部分を分けて作成し、非同期通信でこの２つを繋げること

@@ -5,13 +5,12 @@ import { useRouter } from 'next/router'
 import { AiOutlineMenu } from 'react-icons/ai';
 import { ImCross } from 'react-icons/im';
 //others
-
 import { UserContext } from '../../pages/_app';
 import styles from './HeaderMenu.module.scss';
 import Auth from '../../modules/auth';
 
 export default function LoginHeader() {
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [menuopen, setMenuOpen] = useState(false);
   const router = useRouter()
   const LogoutButton = (e) => {
@@ -38,11 +37,9 @@ export default function LoginHeader() {
             <Link href="/reviews/new">
               <a className={styles.link}><li className={styles.link_part}>Map</li></a>
             </Link>
-            <Link href="/users">
-              <a className={styles.link}><li className={styles.link_part}>Users</li></a>
+            <Link href={`/users/${user.id}`}>
+              <a className={styles.link}><li className={styles.link_part}>Profile</li></a>
             </Link>
-            {/* <a href="/" className={styles.link}><li className={styles.link_part}>How to use</li></a>
-            <a href="/" className={styles.link}><li className={styles.link_part}>Guest Map</li></a> */}
             <li className={styles.component}>
               <button className={styles.component_button} onClick={LogoutButton}>ログアウト
               </button>

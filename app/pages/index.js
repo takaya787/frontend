@@ -74,7 +74,7 @@ export default function Home(props) {
               width='50' height='50'
             />
           </div>
-          <Link href="">
+          <Link href="/beginner">
             <a><h1 className={styles.main_question}><span><Image src='/images/logo.png' width='270' height='50' /></span>ってどんなサービス？</h1></a>
           </Link>
           <div className={styles.main_explains}>

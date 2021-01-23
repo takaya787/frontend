@@ -1,6 +1,3 @@
-//serversideで実行する用
-import fetch from 'node-fetch'
-
 //StaticPathesでuserのIDを取得する
 export async function getAllUserIDs() {
   let json = []

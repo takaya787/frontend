@@ -16,7 +16,7 @@ export default function Beginner(props) {
       </Head>
       <div id={styles.beginner}>
         <div className={styles.title}>
-          <h1 className={styles.title_main}>初めて<a href="#"><span className={styles.keyword}>住み心地.com</span></a>を<br className="common__sp-only" />ご覧頂く方へ</h1>
+          <h1 className={styles.title_main}>初めて<a href="#" className={styles.keyword}><span>住み心地.com</span></a>を<br className="common__sp-only" />ご覧頂く方へ</h1>
           <h3 className={styles.title_text}>ここでは<span className={styles.keyword}>住み心地.com</span>の<br />ご利用方法を解説させて頂きます。
         </h3>
         </div>
