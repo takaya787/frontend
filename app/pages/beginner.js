@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 //components関連
+import Auth from '../modules/auth';
 import Layout from '../components/Layout';
 import Signup from '../components/Signup';
 import styles from '../styles/Beginner.module.scss';
@@ -91,7 +92,16 @@ export default function Beginner(props) {
                     <Image src='/images/review_form.png' alt='review_form' width={450} height={600} />
                   </div>
                   <p>フォーム内容入力後に<span className={styles.bold}>投稿を送信</span>をクリックして、投稿完了です。</p>
-                  <Signup title='reviewを投稿する' />
+                  {Auth.isLoggedIn() ? (
+                    // <Link href='/reviews/new'>
+                    //   <a>レビューを投稿する</a>
+                    // </Link>
+                    <></>
+                  ) : (
+                      <Signup title='reviewを投稿する'
+                      />
+                    )
+                  }
                 </div>
               </div>
             </div>

@@ -34,6 +34,11 @@ export default function index(props) {
             <br />
             {user.email}
             <DeleteButton id={user.id} />
+            <br />
+            <Link href={`/users/${user.id}`}
+            >
+              <a>User　詳細ページを開く</a>
+            </Link>
           </div>
           ))
         }

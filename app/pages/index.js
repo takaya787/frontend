@@ -15,7 +15,7 @@ export default function Home(props) {
   return (
     <Layout home>
       <Head>
-        <title>Map | 住み心地.com</title>
+        <title>住み心地.com</title>
       </Head>
       <div id={styles.root}>
         {/* pc用　デザイン*/}

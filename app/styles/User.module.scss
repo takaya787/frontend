@@ -1,0 +1,19 @@
+#user {
+  padding: 10px 10%;
+  .profile {
+    &_logo {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
+  .reviews {
+    display: block;
+    &_lists {
+      list-style: none;
+      padding-left: 0;
+      .list {
+        padding: 10px;
+      }
+    }
+  }
+}

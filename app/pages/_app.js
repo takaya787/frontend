@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }) {
     setUser,
   };
 
+  //tokenがあれば自動login
   useEffect(function () {
     const token = Auth.getToken();
     if (token === 'undefined') {
