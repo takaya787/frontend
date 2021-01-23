@@ -30,7 +30,7 @@ export default function Signup(props) {
         (<div className={styles.modal}>
           <div className={styles.content}>
             <button className={styles.content_close} onClick={Closemodal}>×</button>
-            <h2 className={styles.content_title}>まずはユーザー登録！</h2>
+            <h2 className={styles.content_title}>ユーザー登録！</h2>
             <UserForm />
             <button className={styles.content_switch} onClick={Logincontroll}>ログインはこちら</button>
           </div>
