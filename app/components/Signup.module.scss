@@ -1,9 +1,11 @@
-@keyframes slideInTop {
-  0% {
-    transform: translateY(-150px);
+@keyframes slidein {
+  0%{
+    opacity: 0;
+    transform:translateY(-300)
   }
-  100% {
-    transform: translateY(0px);
+  100%{
+    opacity: 1.0;
+    transform: translateY(0);
   }
 }
 //最初のボタン
@@ -31,10 +33,10 @@
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
+  animation: slidein 1s;
   //header menu(11)より大きくする必要がある
   z-index: 13;
   .content {
-    animation: slideinTop 1s;
     display: block;
     background-color: white;
     height: auto;
