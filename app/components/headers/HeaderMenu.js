@@ -24,7 +24,7 @@ export default function HeaderMenu() {
             <Link href="/beginner">
               <a className={styles.link}><li className={styles.link_part}>How to use</li></a>
             </Link>
-            <Link href="/reviews/new">
+            <Link href="/guest">
               <a className={styles.link}><li className={styles.link_part}>Guest Map</li></a>
             </Link>
             <Link href="/users">
