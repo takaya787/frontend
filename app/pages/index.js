@@ -37,9 +37,13 @@ export default function Home(props) {
           </div>
           {!Auth.isLoggedIn() && (
             <div className={styles.guide}>
-              <h3 className={styles.guide_title}> ゲストとして<br />レビューをチェック！</h3>
-              <h3 className={styles.guide_title}>ユーザー登録して<br />レビューを投稿！</h3>
-              <Signup title='レビューを投稿する' />
+              <h3 className={styles.guide_title}> まずは気になる場所の<br />
+                <Link href='/guest'><a className={styles.guide_link}>レビューをチェック</a></Link>
+              </h3>
+              <h3 className={styles.guide_title}>ユーザー登録して<br />レビューを投稿！
+              <br />
+                <Signup title='レビューを投稿する' />
+              </h3>
             </div>
           )}
         </div>
@@ -59,9 +63,13 @@ export default function Home(props) {
           </div>
           {!Auth.isLoggedIn() && (
             <div className={styles.guide}>
-              <h3 className={styles.guide_title}> ゲストとして<br />レビューをチェック！</h3>
-              <h3 className={styles.guide_title}>ユーザー登録して<br />レビューを投稿！</h3>
-              <Signup title='レビューを投稿する' />
+              <h3 className={styles.guide_title}> まずは気になる場所の<br />
+                <Link href='/guest'><a className={styles.guide_link}>レビューをチェック</a></Link>
+              </h3>
+              <h3 className={styles.guide_title}>ユーザー登録して<br />レビューを投稿！
+              <br />
+                <Signup title='レビューを投稿する' />
+              </h3>
             </div>
           )}
         </div>
