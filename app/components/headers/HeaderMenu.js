@@ -27,9 +27,9 @@ export default function HeaderMenu() {
             <Link href="/guest">
               <a className={styles.link}><li className={styles.link_part}>Guest Map</li></a>
             </Link>
-            <Link href="/users">
+            {/* <Link href="/users">
               <a className={styles.link}><li className={styles.link_part}>Users</li></a>
-            </Link>
+            </Link> */}
             <li className={styles.component}>
               <Signup
                 title="はじめる"
