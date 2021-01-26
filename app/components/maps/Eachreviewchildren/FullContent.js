@@ -13,9 +13,9 @@ export default function FullContent(props) {
   const { review } = useContext(ReviewPropsContext);
 
   return (
-    <div className={styles.contents} styles={{ zIndex: '5' }}>
-      <button className={styles.button} onClick={props.handleClose}>✕</button>
-      <div className={styles.content}>
+    <div className={styles.contents}>
+      <button className={styles.button} onClick={props.handleClose} style={{ zIndex: 10 }}>✕</button>
+      <div className={styles.content} style={{ zIndex: 5 }}>
         <p className={styles.content_title} >住み心地</p>
         <p className={styles.content_score}>{review.score}</p>
         <div className={styles.content_star}><ReactStars value={review.score} isEdit={false} size={20} /></div>
@@ -34,7 +34,7 @@ export default function FullContent(props) {
       </div>
       {/* reviewの編集ボタンはUserとcurrentUserが等しい時のみ表示 */}
       {user.id === review.User && (
-        <button className={styles.editbutton} onClick={props.handleEdit}>編集する</button>
+        <button className={styles.editbutton} onClick={props.handleEdit} style={{ zIndex: 10 }}>編集する</button>
       )}
     </div>
   )

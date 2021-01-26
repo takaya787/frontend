@@ -47,7 +47,7 @@ export default function EachReview(props) {
 
   return (
     <ReviewPropsContext.Provider value={reviewvalue}>
-      <div className={styles.eachreview} onClick={handleReview} styles={{ zIndex: '1' }}>
+      <div className={styles.eachreview} onClick={handleReview} style={{ zIndex: 1 }}>
         <>
           {reviewopen && (
             <FullContent
