@@ -20,7 +20,7 @@ const baseUrl = process.env.BASE_URL + 'reviews.json';
 const fetcher = () => fetch(baseUrl).then(res => res.json());
 
 export default function GuestMap(props) {
-  const initialcenter = { lat: -33.8688197, lng: 151.2092955 };
+  const initialcenter = { lat: 48.856614, lng: 2.3522219 };
   const [guestcenter, setGuestCenter] = useState(initialcenter);
   const CenterValue = { guestcenter, setGuestCenter };
 

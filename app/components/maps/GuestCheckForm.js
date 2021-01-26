@@ -35,7 +35,7 @@ export default function GuestCheckForm() {
         }
         // console.log(data);
         setGuestCenter({ lat: data.lat, lng: data.lng });
-        setZoom(9.0);
+        setZoom(6.5);
       })
       .catch((error) => {
         console.error('Error:', error);
