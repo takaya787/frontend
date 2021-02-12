@@ -3,6 +3,7 @@ import useSWR from 'swr';
 //{yarn add google-map-react}をコンテナ内で入力して、packageをダウンロードする必要がある
 import GoogleMapReact from 'google-map-react'
 
+
 //components
 import CheckForm from './CheckForm';
 import CenterPin from './CenterPin';
