@@ -68,7 +68,7 @@ export default function EditForm(props) {
         className={styles.draft_form}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h3 className={styles.title}>投稿内容を入力してください</h3>
+        <h3 className={styles.title}>変更内容を入力してください</h3>
         <label htmlFor="reason">滞在理由について(30字以内）<span className="required">＊必須</span></label>
         <input className={styles.form} type="text" name="reason" id="reason"
           ref={register({ required: '滞在理由は必須です' })}
@@ -113,7 +113,7 @@ export default function EditForm(props) {
         {/*　scoreformは隠し要素にして問題ないはず */}
         <input className="form" type="hidden" name="score" id="score" value={score} ref={register()} />
 
-        <input className={styles.form_submit} type="submit" value="投稿を送信" />
+        <input className={styles.form_submit} type="submit" value="変更を送信" />
       </form>
     </div>
   )
