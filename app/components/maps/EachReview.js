@@ -16,6 +16,7 @@ export default function EachReview(props) {
 
   //reviewをopenするボタン
   const handleReview = () => {
+    setReviewOpen(!reviewopen);
     setEditOpen(false);
   }
 

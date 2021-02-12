@@ -21,9 +21,6 @@ export default function EditForm(props) {
 
   const { register, handleSubmit, formstate } = useForm();
 
-  const testsubmit = (value) => {
-    console.log(value);
-  }
   const onSubmit = (value) => {
     // console.log(value.title);
     fetch(baseUrl, {
@@ -51,7 +48,7 @@ export default function EditForm(props) {
         console.log(data);
         if (data.errors) {
           console.log(data.errors);
-          handleError(data.errors);
+          // handleError(data.errors);
           return
         }
         console.log('Review is editted successfully');
@@ -69,7 +66,7 @@ export default function EditForm(props) {
       <button className={styles.draft_button} onClick={props.handleClose}>✕</button>
       <form
         className={styles.draft_form}
-        onSubmit={handleSubmit(testsubmit)}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <h3 className={styles.title}>投稿内容を入力してください</h3>
         <label htmlFor="reason">滞在理由について(30字以内）<span className="required">＊必須</span></label>
