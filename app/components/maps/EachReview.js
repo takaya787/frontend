@@ -8,26 +8,28 @@ import EditForm from './Eachreviewchildren/EditForm';
 //others
 import styles from './EachReview.module.scss';
 
-
 export const ReviewPropsContext = createContext();
 
 export default function EachReview(props) {
   const [reviewopen, setReviewOpen] = useState(false);
   const [editopen, setEditOpen] = useState(false);
 
+  //reviewをopenするボタン
   const handleReview = () => {
-    setReviewOpen(!reviewopen);
     setEditOpen(false);
   }
 
+  //edit formをopenするボタン
   const handleEdit = () => {
-    setEditOpen(!editopen);
+    setEditOpen(true);
     setReviewOpen(false);
   }
+  //closeボタンは共通
   const handleClose = () => {
     setReviewOpen(false);
     setEditOpen(false);
   }
+
   const reviewvalue = {
     review: {
       id: props.id,
@@ -46,8 +48,10 @@ export default function EachReview(props) {
   }
 
   return (
+    // propsで受け取ったreview情報をReviewPropsContextで一括管理
     <ReviewPropsContext.Provider value={reviewvalue}>
-      <div className={styles.eachreview} onClick={handleReview} style={{ zIndex: 1 }}>
+      <>
+        <div className={styles.eachreview} onClick={() => handleReview()} style={{ zIndex: 1 }}></div>
         <>
           {reviewopen && (
             <FullContent
@@ -61,7 +65,7 @@ export default function EachReview(props) {
             />
           )}
         </>
-      </div>
+      </>
     </ReviewPropsContext.Provider>
   )
 }
